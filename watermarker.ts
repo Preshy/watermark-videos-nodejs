@@ -1,20 +1,14 @@
 const ffmpeg = require("fluent-ffmpeg");
-const { Promise } = require("core-js");
 
 export async function addWatermark(inputPath: string, outputPath: string, watermarkPath: string) {
   return new Promise((resolve, reject) => {
-    ffmpeg(inputPath)
-      .addInput(watermarkPath)
+    ffmpeg()
+     .input(inputPath)
+      .input(watermarkPath)
+      .videoCodec('libx264')
+      .outputOptions('-pix_fmt yuv420p')
       .complexFilter([
-        {
-          filter: "overlay",
-          options: {
-            x: "(main_w - overlay_w) / 2",
-            y: "(main_h - overlay_y) / 2",
-          },
-          inputs: "[1:v]",
-          outputs: "watermarked",
-        },
+          "[0:v]scale=640:-1[bg];[bg][1:v]overlay=W-w-10:H-h-10"
       ])
       .on("end", resolve)
       .on("error", reject)

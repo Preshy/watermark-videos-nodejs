@@ -38,23 +38,17 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 exports.__esModule = true;
 exports.addWatermark = void 0;
 var ffmpeg = require("fluent-ffmpeg");
-var Promise = require("core-js").Promise;
 function addWatermark(inputPath, outputPath, watermarkPath) {
     return __awaiter(this, void 0, void 0, function () {
         return __generator(this, function (_a) {
             return [2 /*return*/, new Promise(function (resolve, reject) {
-                    ffmpeg(inputPath)
-                        .addInput(watermarkPath)
+                    ffmpeg()
+                        .input(inputPath)
+                        .input(watermarkPath)
+                        .videoCodec('libx264')
+                        .outputOptions('-pix_fmt yuv420p')
                         .complexFilter([
-                        {
-                            filter: "overlay",
-                            options: {
-                                x: "(main_w - overlay_w) / 2",
-                                y: "(main_h - overlay_y) / 2"
-                            },
-                            inputs: "[1:v]",
-                            outputs: "watermarked"
-                        },
+                        "[0:v]scale=640:-1[bg];[bg][1:v]overlay=W-w-10:H-h-10"
                     ])
                         .on("end", resolve)
                         .on("error", reject)
