@@ -3,6 +3,7 @@
 
 ## Prerequisites
 * Node.js version 12 or later
+* Typescript
 * FFmpeg installed on your system
 * A video file and a watermark image file
 ### Installation
@@ -16,6 +17,12 @@ $ npm install
 ### Usage
 The tool takes three arguments: the input video file, the output video file, and the watermark image file. To run the tool, open the terminal, navigate to the root directory of the repository, and run the following command:
 
+#### Compile code
+```
+$ tsc index.ts watermarker.ts
+```
+
+#### Execute code
 ```
 $ node index.js input.mp4 output.mp4 watermark.png
 ```
@@ -25,7 +32,7 @@ The tool will add the watermark image to the center of the input video file and 
 ### Note
 If the arguments are not passed, you will get an error message:
 
-### Error: missing required argument(s). Usage: node index.js inputPath outputPath watermarkPath
+##### Error: missing required argument(s). Usage: node index.js inputPath outputPath watermarkPath
 
 ### Demo
 Open the demo folder to view a demo video and its added watermark
