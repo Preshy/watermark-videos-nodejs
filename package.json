@@ -1,0 +1,24 @@
+{
+  "name": "watermarker",
+  "version": "1.0.0",
+  "description": "Watermarking a video using Typescript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "watermark",
+    "video"
+  ],
+  "author": "Preshy",
+  "license": "ISC",
+  "dependencies": {
+    "core-js": "^3.27.2",
+    "ffmpeg": "^0.0.4",
+    "fluent-ffmpeg": "^2.1.2",
+    "typescript": "^4.9.5"
+  },
+  "devDependencies": {
+    "@types/node": "^18.13.0"
+  }
+}
