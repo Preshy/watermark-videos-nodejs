@@ -3,6 +3,7 @@
 
 ## Prerequisites
 * Node.js version 12 or later
+* NPM
 * Typescript
 * FFmpeg installed on your system
 * A video file and a watermark image file
@@ -29,7 +30,7 @@ $ node index.js input.mp4 output.mp4 watermark.png
 
 The tool will add the watermark image to the center of the input video file and save the result as the output video file. The output file will have the same format as the input file.
 
-### Note
+### Note 
 If the arguments are not passed, you will get an error message:
 
 ##### Error: missing required argument(s). Usage: node index.js inputPath outputPath watermarkPath
@@ -38,4 +39,4 @@ If the arguments are not passed, you will get an error message:
 Open the demo folder to view a demo video and its added watermark
 
 ### Contributions
-PR's / Reviews are welcome here. I don't take opinions personally! I'm always open to learning.
+PR's / Reviews are welcome here. I'm always open to learning!.
